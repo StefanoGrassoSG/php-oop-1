@@ -1,11 +1,20 @@
 <?php
     class Movie {
-
+        public $title;
+        public $release;
+        public $vote;
+        public $director;
+        public $avaiable;
     }
 
 
-    $nuovoOggettoUser = new Movie();
+    $batman = new Movie();
 
+    $batman->title = 'the dark Knight';
+    $batman->release = '2008-07-13';
+    $batman->vote = 8;
+    $batman->director = 'Christopher Nolan';
+    $batman->avaiable = true;
 ?>
 
 
@@ -24,7 +33,13 @@
         <div class="container">
             <div class="text">
 
-                <?php var_dump($nuovoOggettoUser) ?>
+                <?php
+
+                var_dump($batman);
+                
+                echo $batman->title;
+
+                ?>
 
             </div>
         </div>
