@@ -1,5 +1,12 @@
 <?php
     require_once __DIR__.'/classes/movie.php';
+
+
+    
+    $batman = new Movie('the dark Knight', '2008-07-13', 8, 'Christopher Nolan', true);
+
+    $hulk = new Movie('the incredible hulk', null, null, null, null);
+
 ?>
 
 <!DOCTYPE html>
