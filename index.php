@@ -4,7 +4,21 @@
         public $release;
         public $vote;
         public $director;
-        public $avaiable;
+        private $avaiable;
+
+        public function getTitleRelease() {
+            return $this->title.' '.$this->release;
+        }
+
+        public function getActive() {
+            return $this->avaiable;
+        }
+
+        public function setActive($avaiable) {
+            if(is_bool($avaiable)) {
+                $this->avaiable = $avaiable;
+            }
+        }
     }
 
 
@@ -14,7 +28,13 @@
     $batman->release = '2008-07-13';
     $batman->vote = 8;
     $batman->director = 'Christopher Nolan';
-    $batman->avaiable = true;
+    $batman->setActive(true);
+
+
+
+    $hulk = new Movie();
+
+    $hulk->title = 'the incredible hulk'
 ?>
 
 
@@ -37,10 +57,26 @@
 
                 var_dump($batman);
                 
-                echo $batman->title;
+                echo $batman->getTitleRelease();
 
+
+                var_dump($hulk);
                 ?>
 
+                <script>
+                    movie = {
+                        title : 'batman',
+                        release : '2008',
+                        vote : 8
+                    }
+
+                    let text = document.querySelector('.text') 
+                    //text.innerHTML(movie.title)
+                    text.innerHTML += movie.title;
+                    for(let key in movie) {
+                        console.log(movie[key])
+                    }
+                </script>
             </div>
         </div>
     </body>

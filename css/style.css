@@ -17,3 +17,8 @@
     color: white;
     font-size: 30px;
 }
+
+.container > .text {
+    height: 100%;
+    overflow: auto;
+}
