@@ -6,13 +6,13 @@
         public $director;
         private $avaiable;
 
-        public function __construct($title, $release, $vote, $director, $avaiable)
+        public function __construct($title, $release, $vote, $director, $avaiable = true)
         {
             $this->title = $title;
             $this->release = $release;
             $this->vote = $vote;
             $this->director = $director;
-            $this->avaiable = $avaiable;
+            $this->setActive($avaiable);
         }
 
         public function getTitleRelease() {
