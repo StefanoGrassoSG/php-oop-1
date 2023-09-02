@@ -3,9 +3,9 @@
 
 
     
-    $batman = new Movie('the dark Knight', '2008-07-13', 8, 'Christopher Nolan');
+    $batman = new Movie('the dark Knight', '2008-07-13', 8, 'Christopher Nolan', ['action', 'fantasy']);
 
-    $hulk = new Movie('the incredible hulk', null, null, null);
+    $hulk = new Movie('the incredible hulk', null, null, null, ['action', 'fantasy']);
 
 ?>
 
