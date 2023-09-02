@@ -1,11 +1,20 @@
 <?php
     require_once __DIR__.'/classes/movie.php';
+    require_once __DIR__.'/database/db.php';
 
+    $movies = [];
 
-    
-    $batman = new Movie('the dark Knight', '2008-07-13', 8, 'Christopher Nolan', ['action', 'fantasy']);
+    foreach($moviesData as $data) {
+        $title = $data['title'];
+        $releaseData = $data['release'];
+        $vote = $data['vote'];
+        $director = $data['director'];
+        $genre = $data['genre'];
+        $avaiable = $data['avaiable'];
 
-    $hulk = new Movie('the incredible hulk', null, null, null, ['action', 'fantasy']);
+        $movie = new movie($title, $releaseData, $vote, $director, $genre, $avaiable);
+        $movies[] = $movie;
+    }
 
 ?>
 
@@ -16,36 +25,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PHP OOP 1</title>
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 </head>
     <body>
-        <div class="container">
-            <div class="text">
+        <div id="app" class="container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Title</th>
+                        <th scope="col">Release</th>
+                        <th scope="col">Vote</th>
+                        <th scope="col">Director</th>
+                        <th scope="col">Genre</th>
+                        <th scope="col">Avaiable</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    foreach($movies as $single) {
+                        echo '<tr>';
+                        echo    '<td>' . $single->getTitle() . '</td>';
+                        echo    '<td>' . $single->getRelease() . '</td>';
+                        echo    '<td>' . $single->getVote() . '</td>';
+                        echo    '<td>' . $single->getDirector() . '</td>';
+                        echo '<td>' . implode(', ', $single->getGenre()) . '</td>';
+                        echo    '<td>' . ($single->getAvaiable() ? 'yes' : 'no') . '</td>';
+                        echo '</tr>';
+                    };
+                    ?>
+                </tbody>
+            </table>
 
-                <?php
-
-                var_dump($batman);
-                
-                echo $batman->getTitleRelease();
-
-
-                var_dump($hulk);
-                ?>
-
-                <script>
-                    movie = {
-                        title : 'batman',
-                        release : '2008',
-                        vote : 8
-                    }
-
-                    let text = document.querySelector('.text') 
-                    //text.innerHTML(movie.title)
-                    text.innerHTML += movie.title;
-                    for(let key in movie) {
-                        console.log(movie[key])
-                    }
-                </script>
-            </div>
         </div>
+        <script src="/script.js"></script>
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     </body>
 </html>

@@ -21,7 +21,27 @@
             return $this->title.' '.$this->release;
         }
 
-        public function getActive() {
+        public function getTitle() {
+            return $this->title;
+        }
+
+        public function getRelease() {
+            return $this->release;
+        }
+
+        public function getVote() {
+            return $this->vote;
+        }
+
+        public function getDirector() {
+            return $this->director;
+        }
+
+        public function getGenre() {
+            return $this->genre;
+        }
+
+        public function getAvaiable() {
             return $this->avaiable;
         }
 
